@@ -2,7 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { ACCESS_TOKEN, PAGE_SIZE } from './constants/constants';
 import Vibrant = require('node-vibrant');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
+
+interface heroListItem {
+  id: number;
+  name: string;
+  url: string;
+  dominantColor: number[];
+}
 
 @Injectable()
 export class AppService {
@@ -17,7 +24,7 @@ export class AppService {
         `https://superheroapi.com/api/${ACCESS_TOKEN}/${index}/image`,
       )
         .then((response) => response.json())
-        .then((hero) => {
+        .then((hero: heroListItem) => {
           return Vibrant.from(hero.url)
             .getPalette()
             .then((palette) => {
