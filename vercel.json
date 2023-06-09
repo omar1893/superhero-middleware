@@ -3,21 +3,11 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@now/node",
-        "config": {
-          "maxLambdaSize": "50mb"
-        }
+        "use": "@vercel/node"
       }
     ],
-    "routes": [
-      {
-        "src": "/.*",
-        "dest": "dist/main.js"
-      }
-    ],
-    "scripts": {
-      "build": "npm run build",
-      "dev": "npm run start",
-      "prod": "npm run start:prod"
+    "routes": [{ "src": "/.*", "dest": "index.js" }],
+    "env": {
+      "MY_ENV_VAR": "value"
     }
   }
