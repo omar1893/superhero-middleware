@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ACCESS_TOKEN, PAGE_SIZE } from './constants/constants';
-//import Vibrant from 'node-vibrant';
 import Vibrant = require('node-vibrant');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const fetch = require('node-fetch');
 
 @Injectable()
 export class AppService {
