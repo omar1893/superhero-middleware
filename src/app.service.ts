@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ACCESS_TOKEN, PAGE_SIZE } from './constants/constants';
 import Vibrant = require('node-vibrant');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-import fetch from 'node-fetch';
+import fetch from 'isomorphic-fetch';
 
 interface heroListItem {
   id: number;
