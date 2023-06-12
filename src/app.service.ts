@@ -30,6 +30,12 @@ export class AppService {
             .then((palette) => {
               hero.dominantColor = palette.Vibrant.rgb;
               return hero;
+            })
+            .catch((error) => {
+              console.log(error);
+              console.log(hero);
+              hero.dominantColor = [255, 199, 125];
+              return hero;
             });
         });
 
